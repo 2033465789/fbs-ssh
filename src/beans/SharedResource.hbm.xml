@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD//EN"  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.SharedResource" table="shared">
+
+		<id name="id" type="long">
+			<generator class="increment" />
+		</id>
+
+		<property name="fileName" type="string" length="255"></property>
+		<property name="uploadUser" type="string" length="50"></property>
+		<property name="uploadTime" type="date" length="50"></property>
+		<property name="filePath" type="string" length="255"></property>
+		<property name="fileType" type="string" length="50"></property>
+		<property name="fileDesc" type="string" length="500"></property>
+
+		<!-- 一对多 -->
+		<set name="comments" lazy="false" cascade="all">
+			<key column="fid"></key>
+			<one-to-many class="beans.Comment"></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

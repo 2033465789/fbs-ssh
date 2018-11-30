@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD//EN"  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.Comment" table="comment">
+
+		<id name="id" column="cid" type="long">
+			<generator class="increment" />
+		</id>
+
+		<property name="uid" type="string" />
+
+		<property name="fid" type="string" />
+
+		<property name="content" type="string" length="1000" />
+
+		<property name="createTime" type="date" />
+
+		<property name="deleteTime" type="date" />
+
+	</class>
+</hibernate-mapping>

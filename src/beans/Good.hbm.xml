@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD//EN"  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.Good" table="good">
+
+		<id name="gid" type="long">
+			<generator class="increment" />
+		</id>
+
+		<property name="finderId" type="string" />
+
+		<property name="numberInfo" type="string" length="32" />
+
+		<property name="losterName" type="string" length="32" />
+
+		<property name="goodDesc" type="string" length="1000" />
+
+		<property name="foundAddr" type="string" length="50" />
+
+		<property name="finderName" type="string" length="20" />
+
+		<property name="finderPhone" type="string" length="11" />
+
+		<property name="finderQQorWX" type="string" length="50" />
+
+		<property name="imagePath" type="string" length="1000" />
+
+	</class>
+</hibernate-mapping>

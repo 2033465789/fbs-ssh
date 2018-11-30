@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="user_center" extends="base_package" namespace="/userCenter">
+		<action name="*" class="userCenterAction" method="{1}">
+			<interceptor-ref name="login">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<result name="allFind">/all_find.jsp</result>
+			<result name="allShared">/all_shared.jsp</result>
+		</action>
+	</package>
+</struts>

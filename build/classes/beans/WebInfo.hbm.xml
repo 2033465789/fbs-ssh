@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD//EN"  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.WebInfo" table="website">
+
+		<id name="id" column="wid" type="long">
+			<generator class="increment" />
+		</id>
+
+		<property name="aimURL" type="string" length="200" unique="true" />
+
+		<property name="imgURL" type="string" length="200" unique="true" />
+
+		<property name="webName" type="string" length="50" unique="true" />
+
+		<property name="webDesc" type="string" length="2000" />
+
+	</class>
+</hibernate-mapping>

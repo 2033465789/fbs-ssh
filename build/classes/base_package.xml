@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="base_package" extends="struts-default" abstract="true">
+		<interceptors>
+			<interceptor-stack name="login">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="log_in"></interceptor-ref>
+			</interceptor-stack>
+			<interceptor name="log_in" class="iterceptor.LogInCheckIterceptor"></interceptor>
+		</interceptors>
+		<global-results>
+			<!-- 当返回login视图名时，转入/login.jsp页面 -->
+			<result name="login">${contextPath}/login.html</result>
+			<result name="error" type="redirect">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+	</package>
+</struts>

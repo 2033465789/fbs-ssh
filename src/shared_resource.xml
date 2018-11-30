@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="shared_reource" extends="base_package"
+		namespace="/sharedResource">
+		<action name="*" class="sharedResourceAction" method="{1}">
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.maximumSize">1024000000</param>
+			</interceptor-ref>
+			<result name="download">/download_resource.jsp</result>
+			<result name="showDetails">/show_file_details.jsp</result>
+			<result name="offline">/pageModules/login.html</result>
+			<result name="downloadFile" type="stream">
+				<!--1.指定被下载文件的入口输入流。注：inputName属性值必须对于Action中的方法名，且首字母小写 -->
+				<param name="inputName">inputStream</param>
+				<!--2.指定下载的文件名 -->
+				<param name="contentDisposition">attachment;filename=${targetFile}</param>
+				<!--3.指定下载的文件类型 -->
+				<!-- <param name="contentType">text/html</param> <param name="buffereSize">1024*1024*640</param> -->
+			</result>
+		</action>
+	</package>
+</struts>

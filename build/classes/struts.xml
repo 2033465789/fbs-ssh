@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<constant name="struts.il8n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.maxSize" value="1024000000" />
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="false" />
+	<include file="base_package.xml"></include>
+	<include file="user_operate.xml"></include>
+	<include file="lost_found.xml"></include>
+	<include file="shared_resource.xml"></include>
+	<include file="website.xml"></include>
+	<include file="admin.xml"></include>
+	<include file="user_center.xml"></include>
+
+	<!-- 用于所有jsp页面跳转 -->
+	<package name="to_jsp" extends="base_package" namespace="/">
+		<action name="*">
+			<result name="success">{1}.jsp</result>
+		</action>
+	</package>
+
+</struts>

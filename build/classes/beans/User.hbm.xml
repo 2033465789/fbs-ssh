@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  "-//Hibernate/Hibernate Mapping DTD//EN"  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="beans.User" table="user">
+		<id name="uid" type="long" column="uid">
+			<generator class="native" />
+		</id>
+		<property name="userName" column="userName" type="string"
+			unique="true" not-null="true" />
+		<property name="password" column="password" type="string" />
+		<property name="permission" column="permission" type="int" />
+	</class>
+</hibernate-mapping>

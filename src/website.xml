@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="website" extends="base_package" namespace="/website">
+		<action name="*" class="websiteAction" method="{1}">
+			<result name="allWebsite">/websites.jsp</result>
+			<result name="permission_deny" type="redirect">/error</result>
+			<result name="addWebsite" type="chain">
+				<param name="actionName">adminAction</param>
+				<param name="nameSpace">/admin</param>
+				<param name="method">addWebsite</param>
+			</result>
+			<result name="deleteWebsite" type="chain">
+				<param name="actionName">adminAction</param>
+				<param name="nameSpace">/admin</param>
+				<param name="method">deleteWebsite</param>
+			</result>
+		</action>
+
+	</package>
+</struts>
